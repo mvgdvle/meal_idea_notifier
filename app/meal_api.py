@@ -1,4 +1,5 @@
 from typing import Dict
+import logging
 import requests
 
 
@@ -7,7 +8,9 @@ class MealApi:
     INGREDIENT_KEY_NAME = "strIngredient"
     MEASURE_KEY_NAME = "strMeasure"
 
-    def __init__(self):
+    def __init__(self, debug: bool = False):
+        logging.getLogger().setLevel(logging.INFO if not debug else logging.DEBUG)
+
         self.meal_data: Dict = {}
 
     def get_dish_name(self):
@@ -46,7 +49,8 @@ class MealApi:
         try:
             img_resp = requests.get(self.meal_data[img_key], stream=True, timeout=10)
             img_resp_raw = img_resp.raw.read()
-        except requests.exceptions.RequestException:
+        except requests.exceptions.RequestException as e:
+            logging.error(e)
             return None
 
         return img_resp_raw
@@ -54,6 +58,7 @@ class MealApi:
     def load_single_meal(self):
         try:
             json_data = requests.get(MealApi.API_URL, timeout=10).json()
+            logging.debug(json_data)
 
             if json_data["meals"] is None or len(json_data["meals"]) == 0:
                 raise MealApiException("Meal data is empty !")
@@ -61,6 +66,7 @@ class MealApi:
             self.meal_data = json_data["meals"][0]
 
         except requests.exceptions.RequestException as e:
+            logging.error(e)
             raise MealApiException() from e
 
 
