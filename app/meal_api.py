@@ -8,10 +8,11 @@ class MealApi:
     INGREDIENT_KEY_NAME = "strIngredient"
     MEASURE_KEY_NAME = "strMeasure"
 
-    def __init__(self, debug: bool = False):
+    def __init__(self, config: Dict, debug: bool = False):
         logging.getLogger().setLevel(logging.INFO if not debug else logging.DEBUG)
 
         self.meal_data: Dict = {}
+        self.config = config
 
     def get_dish_name(self):
         return self.meal_data["strMeal"]
