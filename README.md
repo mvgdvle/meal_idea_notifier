@@ -12,9 +12,15 @@ automatically runs every day at 13:00 (1:00 PM).
 * **pyyaml** version 6.0.1
 * **pytelegrambotapi**  version 4.15.2
 
-You can install them using the provided command:
+To install required packages:
+1. Make sure you have poetry installed. If not, you can install it using:
 ```bash
-python install -m pyproject.toml
+pip install poetry
+```
+2. Navigate to the project directory containing the `pyproject.toml` file.
+3. Run the following command to install the dependencies defined in `pyproject.toml`:
+```bash
+poetry install
 ```
 
 ## Configuration 
