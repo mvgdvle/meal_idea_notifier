@@ -2,7 +2,7 @@
 name = "meal-idea-notifier"
 version = "0.1.0"
 description = ""
-authors = ["MNowakowska <mv.nowakowska@gmail.com>"]
+authors = [""]
 readme = "README.md"
 packages = [{include = "app"}]
 
