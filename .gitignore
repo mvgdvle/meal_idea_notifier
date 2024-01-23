@@ -1,4 +1,5 @@
 *.pyc
+**/config.yaml
 
 # Packages
 *.egg
