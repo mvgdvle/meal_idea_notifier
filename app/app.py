@@ -37,10 +37,10 @@ if __name__ == "__main__":
     meal_api = MealApi(config, debug=parsed.debug)
     meal_api.load_single_meal()
 
-    meal_message=generate_message_content(
-    meal_api.get_dish_name(),
-    meal_api.get_ingredients(),
-    meal_api.get_instructions(),
+    meal_message = generate_message_content(
+        meal_api.get_dish_name(),
+        meal_api.get_ingredients(),
+        meal_api.get_instructions(),
     )
 
     meal_image = meal_api.get_meal_image()

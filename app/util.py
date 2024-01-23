@@ -12,11 +12,12 @@ def parse_config(config_file_name: str):
 
         return config
 
-#zwracanie sformatowanej wiadomości
+
+# zwracanie sformatowanej wiadomości
 def generate_message_content(dish_name, ingredients, instructions):
 
-# wzór wiadomości - nazwa dania + instrukcja + lista składników wraz z miarami 
-    meal_idea_template= """
+    # wzór wiadomości - nazwa dania + instrukcja + lista składników wraz z miarami
+    meal_idea_template = """
 <b>{DISH_NAME}</b>
 
 <u>Cooking Instructions:</u>
